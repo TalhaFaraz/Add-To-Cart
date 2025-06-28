@@ -22,6 +22,7 @@ function AddToCart() {
       });
   }, []);
 
+  // After all hooks
   if (!context) {
     return <p>Error: Context not found. Make sure you are rendering this inside MyContext.Provider.</p>;
   }
