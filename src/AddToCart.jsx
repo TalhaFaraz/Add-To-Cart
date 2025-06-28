@@ -3,12 +3,6 @@ import { MyContext } from './App';
 
 function AddToCart() {
   const context = useContext(MyContext);
-
-  if (!context) {
-    return <p>Error: Context not found. Make sure you are rendering this inside MyContext.Provider.</p>;
-  }
-
-  const { addToCart, cart } = context;
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -27,6 +21,12 @@ function AddToCart() {
         console.error('Error fetching products:', error);
       });
   }, []);
+
+  if (!context) {
+    return <p>Error: Context not found. Make sure you are rendering this inside MyContext.Provider.</p>;
+  }
+
+  const { addToCart, cart } = context;
 
   const handleAdd = (product) => {
     addToCart(product);
